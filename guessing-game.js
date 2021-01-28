@@ -16,18 +16,19 @@ const rl = readline.createInterface({
 
 let secretNum = 35;
 
-let askGuess = rl.question('Enter a guess:', answer => {
-    checkGuess(Number(answer));
-    rl.close();
-});
+function askGuess() {
+    rl.question('Enter a guess:', answer => {
+        let isCorrect = checkGuess(Number(answer))
+        if (isCorrect) {
+            console.log("You win!");
+            rl.close();
+        } else {
+            askGuess();
+        }
 
+    });
 
-
-
-
-
-
-
+}
 
 
 
@@ -43,3 +44,5 @@ let checkGuess = (num) => {
         return true;
     }
 }
+
+askGuess();
