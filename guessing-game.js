@@ -14,7 +14,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-let secretNum = 35;
+let secretNum //= randomInRange();
 
 function askGuess() {
     rl.question('Enter a guess:', answer => {
@@ -29,6 +29,17 @@ function askGuess() {
     });
 
 }
+function randomInRange(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.random() * (max - min) + min;
+    
+
+}
+// console.log(randomInRange(6, 8))
+
+
+
 
 
 
